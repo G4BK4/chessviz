@@ -29,14 +29,16 @@ void check_kings(char (*board)[m])
     if (wf + bf == 2) {
         return;
     } else if (wf == 1 && bf == 0) {
-        printf("White won.\nCongratulations!\nEvery changes were written to the moves.txt.\n");
+        printf("White won.\nCongratulations!\nEvery changes were written to "
+               "the moves.txt.\n");
         // FILE* f;
         // f = fopen("moves.txt", "a");
         // fprintf(f, "White won.\n");
         // fclose(f);
         _Exit(EXIT_SUCCESS);
     } else if (wf == 0 && bf == 1) {
-        printf("Black won.\nCongratulations!\nEvery changes were written to the moves.txt.\n");
+        printf("Black won.\nCongratulations!\nEvery changes were written to "
+               "the moves.txt.\n");
         // FILE* f;
         // f = fopen("moves.txt", "a");
         // fprintf(f, "Black won.\n");
@@ -62,19 +64,23 @@ int check_coordinats(int* ffc, int* fsc, int* sfc, int* ssc)
 
     int argn = 0;
 
-    if (str[0] == 'a' || str[0] == 'b' || str[0] == 'c' || str[0] == 'd' || str[0] == 'e' || str[0] == 'f' || str[0] == 'g' || str[0] == 'h') {
+    if (str[0] == 'a' || str[0] == 'b' || str[0] == 'c' || str[0] == 'd'
+        || str[0] == 'e' || str[0] == 'f' || str[0] == 'g' || str[0] == 'h') {
         *ffc = (int)str[0] - 96;
         argn += 1;
     }
-    if (str[1] == '1' || str[1] == '2' || str[1] == '3' || str[1] == '4' || str[1] == '5' || str[1] == '6' || str[1] == '7' || str[1] == '8') {
+    if (str[1] == '1' || str[1] == '2' || str[1] == '3' || str[1] == '4'
+        || str[1] == '5' || str[1] == '6' || str[1] == '7' || str[1] == '8') {
         *fsc = 9 - (str[1] - 48);
         argn += 1;
     }
-    if (str[3] == 'a' || str[3] == 'b' || str[3] == 'c' || str[3] == 'd' || str[3] == 'e' || str[3] == 'f' || str[3] == 'g' || str[3] == 'h') {
+    if (str[3] == 'a' || str[3] == 'b' || str[3] == 'c' || str[3] == 'd'
+        || str[3] == 'e' || str[3] == 'f' || str[3] == 'g' || str[3] == 'h') {
         *sfc = (int)str[3] - 96;
         argn += 1;
     }
-    if (str[4] == '1' || str[4] == '2' || str[4] == '3' || str[4] == '4' || str[4] == '5' || str[4] == '6' || str[4] == '7' || str[4] == '8') {
+    if (str[4] == '1' || str[4] == '2' || str[4] == '3' || str[4] == '4'
+        || str[4] == '5' || str[4] == '6' || str[4] == '7' || str[4] == '8') {
         *ssc = 9 - (str[4] - 48);
         argn += 1;
     }
@@ -93,8 +99,10 @@ int step_white(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65 && board[ssc][sfc] <= 90
-            && ((fsc - 1 == ssc && ffc - 1 == sfc) || (fsc - 1 == ssc && ffc + 1 == sfc))) {
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65
+            && board[ssc][sfc] <= 90
+            && ((fsc - 1 == ssc && ffc - 1 == sfc)
+                || (fsc - 1 == ssc && ffc + 1 == sfc))) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -112,8 +120,10 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97 && board[ssc][sfc] <= 122
-            && ((fsc + 1 == ssc && ffc - 1 == sfc) || (fsc + 1 == ssc && ffc + 1 == sfc))) {
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97
+            && board[ssc][sfc] <= 122
+            && ((fsc + 1 == ssc && ffc - 1 == sfc)
+                || (fsc + 1 == ssc && ffc + 1 == sfc))) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -124,7 +134,6 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
 }
 void init_board(char (*board)[m])
 {
-
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < m; j++) {
             board[i][j] = ' ';
