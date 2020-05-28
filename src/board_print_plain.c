@@ -17,30 +17,30 @@ void display_board(char (*board)[10])
     printf("+---------------------+\n");
 }
 
-// void fprint_board(char (*board)[10])
-// {
-//     FILE* f;
-//     f = fopen("moves.txt", "a");
+void fprint_board(char (*board)[10])
+{
+    FILE* f;
+    f = fopen("moves.txt", "a");
 
-//     fprintf(f, "+---------------------+");
-//     for (int i = 0; i < 10; i++) {
-//         fprintf(f, "\n");
-//         fprintf(f, "| ");
-//         for (int j = 0; j < 10; j++) {
-//             fprintf(f, "%c ", board[i][j]);
-//         }
-//         fprintf(f, "|");
-//     }
-//     fprintf(f, "\n");
-//     fprintf(f, "+---------------------+\n");
+    fprintf(f, "+---------------------+");
+    for (int i = 0; i < 10; i++) {
+        fprintf(f, "\n");
+        fprintf(f, "| ");
+        for (int j = 0; j < 10; j++) {
+            fprintf(f, "%c ", board[i][j]);
+        }
+        fprintf(f, "|");
+    }
+    fprintf(f, "\n");
+    fprintf(f, "+---------------------+\n");
 
-//     fclose(f);
-// }
+    fclose(f);
+}
 
-// void fprint_step(int ffc, int fsc, int sfc, int ssc)
-// {
-//     FILE* f;
-//     f = fopen("moves.txt", "a");
-//     fprintf(f, "%c%d %c%d\n", ffc + 96, 9 - fsc, sfc + 96, 9 - ssc);
-//     fclose(f);
-// }
+void fprint_step(int ffc, int fsc, int sfc, int ssc)
+{
+    FILE* f;
+    f = fopen("moves.txt", "a");
+    fprintf(f, "%c%d %c%d\n", ffc + 96, 9 - fsc, sfc + 96, 9 - ssc);
+    fclose(f);
+}

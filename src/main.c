@@ -9,7 +9,7 @@ int main()
 
     init_board(board);
     display_board(board);
-    // fprint_board(board);
+    fprint_board(board);
 
     int ffc = 0, fsc = 0, sfc = 0, ssc = 0;
     char f = 0, status = 0;
@@ -27,8 +27,8 @@ int main()
                     printf("You pick the wrong figure.\n");
                 } else {
                     display_board(board);
-                    // fprint_step(ffc, fsc, sfc, ssc);
-                    // fprint_board(board);
+                    fprint_step(ffc, fsc, sfc, ssc);
+                    fprint_board(board);
                     f = 1;
                     check_kings(board);
                 }
@@ -45,8 +45,8 @@ int main()
                     printf("You pick the wrong figure.\n");
                 } else {
                     display_board(board);
-                    // fprint_step(ffc, fsc, sfc, ssc);
-                    // fprint_board(board);
+                    fprint_step(ffc, fsc, sfc, ssc);
+                    fprint_board(board);
                     f = 0;
                     check_kings(board);
                 }
