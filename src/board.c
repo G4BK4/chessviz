@@ -114,8 +114,8 @@ int step_white(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65 && board[ssc][sfc] <= 90
-            && (ffc == sfc || fsc == ssc)) {
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65
+            && board[ssc][sfc] <= 90 && (ffc == sfc || fsc == ssc)) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -123,12 +123,14 @@ int step_white(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
         return 0;
     }
     if (board[fsc][ffc] == 'n') { // white knight
-        if (board[ssc][sfc] == ' ' && (pow(sfc - ffc, 2) + pow(ssc - fsc, 2)) == 5) {
+        if (board[ssc][sfc] == ' '
+            && (pow(sfc - ffc, 2) + pow(ssc - fsc, 2)) == 5) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65 && board[ssc][sfc] <= 90
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65
+            && board[ssc][sfc] <= 90
             && (pow(sfc - ffc, 2) + pow(ssc - fsc, 2)) == 5) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
@@ -142,17 +144,18 @@ int step_white(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65 && board[ssc][sfc] <= 90
-            && abs(ssc - fsc) == abs(sfc - ffc)) {
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 65
+            && board[ssc][sfc] <= 90 && abs(ssc - fsc) == abs(sfc - ffc)) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
         }
         return 0;
     }
-    if (board[fsc][ffc] == 'q') { // white queen (ferz')
+    if (board[fsc][ffc] == 'q') { // white queen
         if (board[ssc][sfc] == ' '
-            && (ffc == sfc || fsc == ssc || (abs(ssc - fsc) == abs(sfc - ffc)))) {
+            && (ffc == sfc || fsc == ssc
+                || (abs(ssc - fsc) == abs(sfc - ffc)))) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -167,12 +170,14 @@ int step_white(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
         return 0;
     }
     if (board[fsc][ffc] == 'k') { // white king
-        if (board[ssc][sfc] == ' ' && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)) {
+        if (board[ssc][sfc] == ' '
+            && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)
+        if (board[ssc][sfc] != ' '
+            && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)
             && board[ssc][sfc] >= 65 && board[ssc][sfc] <= 90) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
@@ -190,8 +195,8 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97 && board[ssc][sfc] <= 122
-            && (ffc == sfc || fsc == ssc)) {
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97
+            && board[ssc][sfc] <= 122 && (ffc == sfc || fsc == ssc)) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -199,12 +204,14 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
         return 0;
     }
     if (board[fsc][ffc] == 'N') { // black knight (horse)
-        if (board[ssc][sfc] == ' ' && (pow(sfc - ffc, 2) + pow(ssc - fsc, 2)) == 5) {
+        if (board[ssc][sfc] == ' '
+            && (pow(sfc - ffc, 2) + pow(ssc - fsc, 2)) == 5) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97 && board[ssc][sfc] <= 122
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97
+            && board[ssc][sfc] <= 122
             && (pow(sfc - ffc, 2) + pow(ssc - fsc, 2)) == 5) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
@@ -218,8 +225,8 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97 && board[ssc][sfc] <= 122
-            && abs(ssc - fsc) == abs(sfc - ffc)) {
+        if (board[ssc][sfc] != ' ' && board[ssc][sfc] >= 97
+            && board[ssc][sfc] <= 122 && abs(ssc - fsc) == abs(sfc - ffc)) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -228,7 +235,8 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
     }
     if (board[fsc][ffc] == 'Q') { // black queen
         if (board[ssc][sfc] == ' '
-            && (ffc == sfc || fsc == ssc || (abs(ssc - fsc) == abs(sfc - ffc)))) {
+            && (ffc == sfc || fsc == ssc
+                || (abs(ssc - fsc) == abs(sfc - ffc)))) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
@@ -243,12 +251,14 @@ int step_black(char (*board)[m], int ffc, int fsc, int sfc, int ssc)
         return 0;
     }
     if (board[fsc][ffc] == 'K') { // black king
-        if (board[ssc][sfc] == ' ' && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)) {
+        if (board[ssc][sfc] == ' '
+            && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
             return 1;
         }
-        if (board[ssc][sfc] != ' ' && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)
+        if (board[ssc][sfc] != ' '
+            && (abs(ssc - fsc) == 1 || abs(sfc - ffc) == 1)
             && board[ssc][sfc] >= 97 && board[ssc][sfc] <= 122) {
             board[ssc][sfc] = board[fsc][ffc];
             board[fsc][ffc] = ' ';
