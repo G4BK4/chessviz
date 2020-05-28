@@ -9,7 +9,7 @@ bin/chessviz-test: build/test/main.o build/src/board.o build/src/board_print_pla
 	gcc build/test/main.o build/src/board.o build/src/board_print_plain.o -o bin/chessviz-test -lm
 
 build/test/main.o: test/main.c
-	gcc -I thirdparty -I srcgit  -o build/test/main.o -c test/main.c
+	gcc -I thirdparty -I src -o build/test/main.o -c test/main.c
 
 build/src/main.o: src/main.c
 	gcc -Wall -Werror -o build/src/main.o -c src/main.c
